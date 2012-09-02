@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game</title>
+
+	<!-- Set server URL -->
+	<script type="text/javascript">
+	var gameServer = 'localhost:8000';
+	if (document.location.href.indexOf('client.artefactgroup') >= 0) {
+		gameServer = 'dev.artefactgroup.com:8000';
+	}
+	</script>
+
+	<!-- Load ags client and local game CSS files -->
+	<link href="AGS-Client/bootstrap/css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="AGS-Client/stylesheets/ags.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="css/app.css" media="all" rel="stylesheet" type="text/css" />
+
+	<!-- Load socket.io, ags client and local game JS files -->
+	<script type="text/javascript" src="http://dev.artefactgroup.com:8000/socket.io/socket.io.js"></script>
+	<script src="AGS-Client/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="AGS-Client/jquery.cookie.js" type="text/javascript"></script>
+	<script src="AGS-Client/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+	<script src="AGS-Client/bootstrap/js/bootstrap-modal.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-core.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-dom.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-drag.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-drag-helpers.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-tools.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-compatibility.js" type="text/javascript"></script>
+	<script src="AGS-Client/awe-core/awe-state-machine.js" type="text/javascript"></script>
+	<script src="AGS-Client/x.js" type="text/javascript"></script>
+	<script src="AGS-Client/util.js" type="text/javascript"></script>
+	<script src="AGS-Client/AGSConnectionView.js" type="text/javascript"></script>
+	<script src="js/client-chess-checkers.js" type="text/javascript"></script>
+	<script src="js/client-match.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+	<script>
+	window.onload=function() {
+		startup();
+	}</script>
+
+</head>
+<body>
+
+<body>
+		<div id="root" class="container">
+
+			<!-- Header -->
+			<div class="row">
+				<div class="header span8">
+					<div class="header well">
+						<h2>Artefact Games</h2>
+						<div id="header-description">
+							This game is a test of the Artefact Game Server.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="current-user span8">
+					<div class="well">
+						<div class="float-right" style>
+							<button id="signout" type="button" class="btn btn-warning">Sign out</button>
+						</div>
+						<span id="auth-status" class="float-right"></span>
+						<h4>User</h4>
+						<br />
+						<span id="username-display">none</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Connectivity -->
+			<div class="row">
+				<div class="connectivity span8">
+					<div id="connection" class="connection not-connected">
+						<div class="well">
+							<h4 class="inline not-connected">Not Connected</h4>
+							<h4 class="inline connected">Connected</h4>
+							<button id="disconnect" type="button" class="span2 btn btn-inverse float-right connected">Disconnect</button>
+							<button id="connect" type="button" class="span2 btn btn-success float-right not-connected">Connect</button>
+							<select id="connection-type" class="float-right">
+								<option>I'm ready to play for a while</option>
+								<option>I just want to take a turn</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Login dialog -->
+			<div class="modal hide fade" id="login-dialog">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">x</button>
+					<h3>Enter username and password</h3>
+					<span style="color: #884444";><strong>WARNING</strong></span>: passwords are currently stored in cookies and in the database as plain text so don't share passwords with other sites.
+				</div>
+				<div class="modal-body">
+					<input id="username-edit" type="text" class="span6" placeholder="Enter username">
+					<input id="password-edit" type="password" class="span6" placeholder="Enter password">
+					<label class="checkbox">
+							<input id="remember-me-check" type="checkbox"> Remember me</input>
+					</label>
+				</div>
+				<div class="modal-footer">
+					<button id="sign-up" type="button" class="btn">Create Account</button>
+					<button id="login-done" type="button" class="btn btn-primary" data-dismiss="modal">Sign in</button>
+				</div>
+			</div>
+
+			<!-- Game display -->
+			<div class="row">
+				<div class="span8">
+					<div id='games-list' class="well">
+						Waiting for connection...
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+
+</body>
+</html>

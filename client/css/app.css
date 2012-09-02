@@ -1,0 +1,24 @@
+
+.p1-piece {
+	background-image: url(/ags/images/vintage_red.png);
+}
+
+.p2-piece {
+	background-image: url(/ags/images/vintage_black.png);
+}
+
+.p1-piece-k {
+	background-image: url(/ags/images/vintage_red_king.png);
+}
+
+.p2-piece-k {
+	background-image: url(/ags/images/vintage_black_king.png);
+}
+
+.square-light {
+	background-image: url(/ags/images/board_white.png);
+}
+
+.square-dark {
+	background-image: url(/ags/images/board_black.png);
+}
