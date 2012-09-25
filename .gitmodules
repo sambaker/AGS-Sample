@@ -1,0 +1,6 @@
+[submodule "client/AGS-Client"]
+	path = client/AGS-Client
+	url = git://github.com/sambaker/AGS-Client.git
+[submodule "server/AGS-Server"]
+	path = server/AGS-Server
+	url = git://github.com/sambaker/AGS-Server.git
